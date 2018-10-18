@@ -1,17 +1,17 @@
 <div class="t-c">
 
-    <img src="[[proto]]://[[&url]]lib.om.ua/om-logo.svg" alt="" />
+    <img src="https://lib.om.ua/om-logo.svg" alt="" />
     <h1>
         Добро пожаловать<span ng-show="account.firstname || account.username">, {{account.firstname || account.username}}</span>!
     </h1>
 
-    <md-button class="md-primary" ng-href="[[proto]]://[[&url]]accounts.om.ua/signup" ng-hide="username">
+    <md-button class="md-primary" ng-href="/signup" ng-hide="username">
         Зарегистрироваться
     </md-button>
-    <md-button class="md-primary" ng-href="[[proto]]://[[&url]]accounts.om.ua/signin" ng-hide="username">
+    <md-button class="md-primary" ng-href="/signin" ng-hide="username">
         Войти
     </md-button>
-    <md-button class="md-primary" ng-href="[[proto]]://[[&url]]accounts.om.ua/edit" ng-show="username">
+    <md-button class="md-primary" ng-href="/edit" ng-show="username">
         Изменить
     </md-button>
     <md-button class="md-primary" ng-show="username" ng-click="signout()">

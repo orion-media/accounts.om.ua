@@ -16,11 +16,11 @@
 <div layout-gt-sm="row">
     <md-input-container class="md-block" flex>
         <label>Имя</label>
-        <input autocomplete="firstname" maxlength="[[data.name_max_length]]" ng-maxlength="[[data.name_max_length]]" ng-model="account.firstname">
+        <input autocomplete="firstname" maxlength="64" ng-maxlength="64" ng-model="account.firstname">
     </md-input-container>
     <md-input-container class="md-block" flex>
         <label>Фамилия</label>
-        <input autocomplete="lastname" maxlength="[[data.name_max_length]]" ng-maxlength="[[data.name_max_length]]" ng-model="account.lastname">
+        <input autocomplete="lastname" maxlength="64" ng-maxlength="64" ng-model="account.lastname">
     </md-input-container>
 </div>
 
@@ -58,7 +58,7 @@
 
 <div layout="row" layout-align="center">
     <md-progress-circular md-mode="indeterminate" ng-show="state.loading"></md-progress-circular>
-    <md-button class="md-raised" ng-disabled="form.$invalid || state.loading" ng-href="[[proto]]://[[&url]]accounts.om.ua/">
+    <md-button class="md-raised" ng-disabled="form.$invalid || state.loading" ng-href="/">
         Отмена
     </md-button>
     <md-button class="md-raised md-primary" ng-disabled="form.$invalid || state.loading" ng-click="edit()">
