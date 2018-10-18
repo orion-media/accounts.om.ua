@@ -1,0 +1,69 @@
+<form name="form" ng-disabled="state.loading" ng-submit="save()">
+
+<h1>Редактирование профиля</h1>
+
+<div layout-gt-sm="row">
+    <md-input-container class="md-block" flex>
+        <label>Имя пользователя</label>
+        <input ng-model="account.username" disabled required>
+    </md-input-container>
+    <md-input-container class="md-block" flex>
+        <label>Почта</label>
+        <input type="email" ng-model="account.email" required>
+    </md-input-container>
+</div>
+
+<div layout-gt-sm="row">
+    <md-input-container class="md-block" flex>
+        <label>Имя</label>
+        <input autocomplete="firstname" maxlength="[[data.name_max_length]]" ng-maxlength="[[data.name_max_length]]" ng-model="account.firstname">
+    </md-input-container>
+    <md-input-container class="md-block" flex>
+        <label>Фамилия</label>
+        <input autocomplete="lastname" maxlength="[[data.name_max_length]]" ng-maxlength="[[data.name_max_length]]" ng-model="account.lastname">
+    </md-input-container>
+</div>
+
+<h1>Изменение пароля</h1>
+
+<div layout-gt-sm="row">
+    <md-input-container md-is-error="form.password.$invalid" class="md-block" flex>
+        <label>Текущий пароль</label>
+        <input name="password" type="password" autocomplete="current-password" ng-model="tmp.password" ng-minlength="6" ng-change="change()">
+        <div ng-messages="form.password.$error">
+            <div ng-message="minlength">Пароль должен быть не менее 6-ти символов</div>
+        </div>
+    </md-input-container>
+</div>
+
+<div layout-gt-sm="row">
+    <md-input-container md-is-error="form.password1.$invalid" class="md-block" flex>
+        <label>Новый пароль</label>
+        <input name="password1" type="password" autocomplete="new-password" ng-model="tmp.password1" ng-minlength="6" ng-required="tmp.password" ng-change="change()">
+        <div ng-messages="form.password1.$error">
+            <div ng-message="required">Необходимо ввести пароль</div>
+            <div ng-message="minlength">Пароль должен быть не менее 6-ти символов</div>
+        </div>
+    </md-input-container>
+    <md-input-container md-is-error="form.password2.$invalid" class="md-block" flex>
+        <label>Подтверждение пароля</label>
+        <input name="password2" type="password" autocomplete="new-password" passwords ng-model="tmp.password2" ng-minlength="6" ng-required="tmp.password" ng-change="change()">
+        <div ng-messages="form.password2.$error">
+            <div ng-message="required">Необходимо ввести подтверждение пароля</div>
+            <div ng-message="minlength">Пароль должен быть не менее 6-ти символов</div>
+            <div ng-message="passwords">Пароль и подтверждение не совпадают</div>
+        </div>
+    </md-input-container>
+</div>
+
+<div layout="row" layout-align="center">
+    <md-progress-circular md-mode="indeterminate" ng-show="state.loading"></md-progress-circular>
+    <md-button class="md-raised" ng-disabled="form.$invalid || state.loading" ng-href="[[proto]]://[[&url]]accounts.om.ua/">
+        Отмена
+    </md-button>
+    <md-button class="md-raised md-primary" ng-disabled="form.$invalid || state.loading" ng-click="edit()">
+        Сохранить
+    </md-button>
+</div>
+
+</form>

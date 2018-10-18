@@ -1,1 +1,1 @@
-# my.om.ua
+# accounts.om.ua
