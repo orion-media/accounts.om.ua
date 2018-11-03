@@ -5,16 +5,16 @@
         Добро пожаловать<span ng-show="account.firstname || account.username">, {{account.firstname || account.username}}</span>!
     </h1>
 
-    <md-button class="md-primary" ng-href="/signup" ng-hide="username">
+    <md-button class="md-primary" ng-href="/signup" ng-hide="id">
         Зарегистрироваться
     </md-button>
-    <md-button class="md-primary" ng-href="/signin" ng-hide="username">
+    <md-button class="md-primary" ng-href="/signin" ng-hide="id">
         Войти
     </md-button>
-    <md-button class="md-primary" ng-href="/edit" ng-show="username">
+    <md-button class="md-primary" ng-href="/edit" ng-show="id">
         Изменить
     </md-button>
-    <md-button class="md-primary" ng-show="username" ng-click="signout()">
+    <md-button class="md-primary" ng-show="id" ng-click="signout()">
         Выйти
     </md-button>
 
