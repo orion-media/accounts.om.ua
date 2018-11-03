@@ -5,11 +5,20 @@
 <div layout-gt-sm="row">
     <md-input-container class="md-block" flex>
         <label>Имя пользователя</label>
-        <input ng-model="account.username" disabled required>
+        <input name="username" ng-model="account.username" ng-maxlength="8" ng-pattern="/^[a-z]+$/">
+        <div ng-messages="form.username.$error">
+            <div ng-message="required">Необходимо ввести имя пользователя</div>
+            <div ng-message="maxlength">Логин не должен превышать 8-ти символов</div>
+            <div ng-message="pattern">Логин должен содержать только символы латинского алфавита</div>
+        </div>
     </md-input-container>
     <md-input-container class="md-block" flex>
         <label>Почта</label>
         <input type="email" ng-model="account.email" required>
+        <div ng-messages="form.email.$error">
+            <div ng-message="required">Необходимо ввести адрес электронной почты</div>
+            <div ng-message="email">Введите корректный адрес электронной почты</div>
+        </div>
     </md-input-container>
 </div>
 

@@ -1,8 +1,8 @@
 <form name="form" ng-disabled="state.loading" ng-submit="signin()">
 
-<div layout="row">
-    <h1 flex="noshrink">Авторизация</h1>
-    <md-input-container class="md-block t-r" flex>
+<div layout-gt-xs="row">
+    <h1 flex>Авторизация</h1>
+    <md-input-container class="md-block" hide-xs>
         <md-button class="md-primary" ng-href="/signup">
             Не зарегистрированы?
         </md-button>
@@ -29,9 +29,15 @@
 
 <div layout="row" layout-align="center">
     <md-progress-circular md-mode="indeterminate" ng-show="state.loading"></md-progress-circular>
-    <md-button class="md-raised md-primary" ng-disabled="form.$invalid || state.loading" ng-click="signin()">
+    <md-button class="md-raised md-primary" md-autofocus ng-disabled="form.$invalid || state.loading" ng-click="signin()">
         Продолжить
     </md-button>
 </div>
+
+<md-input-container class="md-block t-c" hide-gt-xs>
+    <md-button class="md-primary" ng-href="/signup">
+        Не зарегистрированы?
+    </md-button>
+</md-input-container>
 
 </form>

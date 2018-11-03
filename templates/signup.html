@@ -2,15 +2,15 @@
 
 <div layout="row">
     <h1 flex>Регистрация</h1>
-    <md-input-container class="md-block t-r" flex>
+    <md-input-container class="md-block" hide-xs>
         <md-button class="md-primary" ng-href="/signin/">
             Уже зарегистрированы?
         </md-button>
     </md-input-container>
 </div>
 
-<div layout-gt-sm="row">
-    <md-input-container class="md-block" flex>
+<!--<div layout-gt-sm="row">-->
+    <!--<md-input-container class="md-block" flex>
         <label>Имя пользователя</label>
         <input name="username" ng-model="account.username" ng-maxlength="8" ng-pattern="/^[a-z]+$/" required>
         <div ng-messages="form.username.$error">
@@ -18,8 +18,8 @@
             <div ng-message="maxlength">Логин не должен превышать 8-ти символов</div>
             <div ng-message="pattern">Логин должен содержать только символы латинского алфавита</div>
         </div>
-    </md-input-container>
-    <md-input-container class="md-block" flex>
+    </md-input-container>-->
+    <md-input-container class="md-block">
         <label>Почта</label>
         <input name="email" type="email" autocomplete="email" ng-model="account.email" required>
         <div ng-messages="form.email.$error">
@@ -27,7 +27,7 @@
             <div ng-message="email">Введите корректный адрес электронной почты</div>
         </div>
     </md-input-container>
-</div>
+<!--</div>-->
 
 <div layout-gt-sm="row">
     <md-input-container class="md-block" flex>
@@ -55,5 +55,11 @@
         Продолжить
     </md-button>
 </div>
+
+<md-input-container class="md-block t-c" hide-gt-xs>
+    <md-button class="md-primary" ng-href="/signin/">
+        Уже зарегистрированы?
+    </md-button>
+</md-input-container>
 
 </form>
