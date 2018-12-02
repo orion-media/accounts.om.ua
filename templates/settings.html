@@ -1,8 +1,8 @@
-<form name="form" ng-disabled="state.loading" ng-submit="save()">
+<form name="form" class="app" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-disabled="state.loading" ng-submit="settings()">
 
-<h1>Редактирование профиля</h1>
+<h1 class="md-display-1">Редактирование профиля</h1>
 
-<div layout-gt-sm="row">
+<div layout-gt-xs="row">
     <md-input-container class="md-block" flex>
         <label>Имя пользователя</label>
         <input name="username" ng-model="account.username" ng-maxlength="8" ng-pattern="/^[a-z]+$/">
@@ -22,7 +22,7 @@
     </md-input-container>
 </div>
 
-<div layout-gt-sm="row">
+<div layout-gt-xs="row">
     <md-input-container class="md-block" flex>
         <label>Имя</label>
         <input autocomplete="firstname" maxlength="64" ng-maxlength="64" ng-model="account.firstname">
@@ -33,19 +33,17 @@
     </md-input-container>
 </div>
 
-<h1>Изменение пароля</h1>
+<h1 class="md-display-1">Изменение пароля</h1>
 
-<div layout-gt-sm="row">
-    <md-input-container md-is-error="form.password.$invalid" class="md-block" flex>
-        <label>Текущий пароль</label>
-        <input name="password" type="password" autocomplete="current-password" ng-model="tmp.password" ng-minlength="6" ng-change="change()">
-        <div ng-messages="form.password.$error">
-            <div ng-message="minlength">Пароль должен быть не менее 6-ти символов</div>
-        </div>
-    </md-input-container>
-</div>
+<md-input-container md-is-error="form.password.$invalid" class="md-block" flex>
+    <label>Текущий пароль</label>
+    <input name="password" type="password" autocomplete="current-password" ng-model="tmp.password" ng-minlength="6" ng-change="change()">
+    <div ng-messages="form.password.$error">
+        <div ng-message="minlength">Пароль должен быть не менее 6-ти символов</div>
+    </div>
+</md-input-container>
 
-<div layout-gt-sm="row">
+<div layout-gt-xs="row">
     <md-input-container md-is-error="form.password1.$invalid" class="md-block" flex>
         <label>Новый пароль</label>
         <input name="password1" type="password" autocomplete="new-password" ng-model="tmp.password1" ng-minlength="6" ng-required="tmp.password" ng-change="change()">
@@ -70,7 +68,7 @@
     <md-button class="md-raised" ng-disabled="form.$invalid || state.loading" ng-href="/">
         Отмена
     </md-button>
-    <md-button class="md-raised md-primary" ng-disabled="form.$invalid || state.loading" ng-click="edit()">
+    <md-button class="md-raised md-primary" ng-disabled="form.$invalid || state.loading" ng-click="settings()">
         Сохранить
     </md-button>
 </div>
