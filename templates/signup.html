@@ -1,7 +1,7 @@
-<form name="form" ng-disabled="state.loading" ng-submit="signup()">
+<form name="form" class="app" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-disabled="state.loading" ng-submit="signup()">
 
 <div layout="row">
-    <h1 flex>Регистрация</h1>
+    <h1 class="md-display-1" flex>Регистрация</h1>
     <md-input-container class="md-block" hide-xs>
         <md-button class="md-primary" ng-href="/signin/">
             Уже зарегистрированы?
@@ -9,27 +9,16 @@
     </md-input-container>
 </div>
 
-<!--<div layout-gt-sm="row">-->
-    <!--<md-input-container class="md-block" flex>
-        <label>Имя пользователя</label>
-        <input name="username" ng-model="account.username" ng-maxlength="8" ng-pattern="/^[a-z]+$/" required>
-        <div ng-messages="form.username.$error">
-            <div ng-message="required">Необходимо ввести имя пользователя</div>
-            <div ng-message="maxlength">Логин не должен превышать 8-ти символов</div>
-            <div ng-message="pattern">Логин должен содержать только символы латинского алфавита</div>
-        </div>
-    </md-input-container>-->
-    <md-input-container class="md-block">
-        <label>Почта</label>
-        <input name="email" type="email" autocomplete="email" ng-model="account.email" required>
-        <div ng-messages="form.email.$error">
-            <div ng-message="required">Необходимо ввести адрес электронной почты</div>
-            <div ng-message="email">Введите корректный адрес электронной почты</div>
-        </div>
-    </md-input-container>
-<!--</div>-->
+<md-input-container class="md-block">
+    <label>Почта</label>
+    <input name="email" type="email" autocomplete="email" ng-model="account.email" required>
+    <div ng-messages="form.email.$error">
+        <div ng-message="required">Необходимо ввести адрес электронной почты</div>
+        <div ng-message="email">Введите корректный адрес электронной почты</div>
+    </div>
+</md-input-container>
 
-<div layout-gt-sm="row">
+<div layout-gt-xs="row">
     <md-input-container class="md-block" flex>
         <label>Пароль</label>
         <input name="password1" type="password" autocomplete="new-password" ng-model="tmp.password1" ng-minlength="6" ng-change="change()" required>

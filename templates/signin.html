@@ -1,7 +1,7 @@
-<form name="form" ng-disabled="state.loading" ng-submit="signin()">
+<form name="form" class="app" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-disabled="state.loading" ng-submit="signin()">
 
 <div layout-gt-xs="row">
-    <h1 flex>Авторизация</h1>
+    <h1 class="md-display-1" flex>Вход</h1>
     <md-input-container class="md-block" hide-xs>
         <md-button class="md-primary" ng-href="/signup">
             Не зарегистрированы?
@@ -9,7 +9,7 @@
     </md-input-container>
 </div>
 
-<div layout-gt-sm="row">
+<div layout-gt-xs="row">
     <md-input-container class="md-block" flex>
         <label>Имя пользователя или почта</label>
         <input name="identity" autocomplete="username" ng-model="account.identity" required>

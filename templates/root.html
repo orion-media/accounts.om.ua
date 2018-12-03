@@ -1,21 +1,60 @@
-<div class="t-c">
+<div class="app" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" md-colors="{ background: 'grey-A100' }">
 
-    <img class="logo" src="https://lib.om.ua/om-logo.svg" alt="">
-    <h1>
-        Добро пожаловать<span ng-show="account.firstname || account.username">, {{account.firstname || account.username}}</span>!
-    </h1>
+    <div class="t-c">
 
-    <md-button class="md-primary" ng-href="/signup" ng-hide="id">
-        Зарегистрироваться
-    </md-button>
-    <md-button class="md-primary" ng-href="/signin" ng-hide="id">
-        Войти
-    </md-button>
-    <md-button class="md-primary" ng-href="/edit" ng-show="id">
-        Изменить
-    </md-button>
-    <md-button class="md-primary" ng-show="id" ng-click="signout()">
-        Выйти
-    </md-button>
+        <img class="logo" src="http://lib.om.ua/om-logo.svg" alt="">
+        <h1 class="md-display-1">
+            Добро пожаловать<span ng-show="account.firstname || account.username">, {{ account.firstname || account.username }}</span>!
+        </h1>
+
+        <md-button class="md-primary" ng-href="/signup" ng-hide="id">
+            Зарегистрироваться
+        </md-button>
+        <md-button class="md-primary" ng-href="/signin" ng-hide="id">
+            Войти
+        </md-button>
+        <md-button class="md-primary" ng-href="/settings" ng-show="id">
+            Настройки
+        </md-button>
+        <md-button class="md-primary" ng-show="id" ng-click="signout()">
+            Выйти
+        </md-button>
+
+    </div>
+
+</div>
+
+<div flex-xs="grow" class="app" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-show="account.balance" md-colors="{ background: 'grey-A100' }">
+
+    <div layout-gt-xs="row" layout-align=" center">
+        <h2 class="md-headline" flex>Финансовая статистика</h2>
+        <p class="t-r">Состояние счета {{account.balance}} грн.</p>
+    </div>
+    <table class="t-c p-sm" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Дата</th>
+                <th class="t-l">Операция</th>
+                <th>Сумма</th>
+                <th hide-xs>Баланс</th>
+            </tr>
+        </thead>
+        <tbody ng-init='types = {
+                            "fee" : "Абонплата",
+                            "liqpay" : "Пополнение через LiqPay",
+                            "bank": "Пополнение через банк",
+                            "cache": "Пополнение наличными",
+                            "suspend": "Приостановка предоставления услуг",
+                            "renewal": "Возобновление предоставления услуг",
+                            }'>
+            <tr ng-repeat="operation in operations track by operation.id">
+                <td hide-xs>{{ operation.created | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+                <td hide-gt-xs>{{ operation.created | date:'yyyy-MM-dd HH:mm' }}</td>
+                <td class="t-l">{{ types[operation.type] }}</td>
+                <td>{{ operation.sum | number:2 }}</td>
+                <td hide-xs>{{ operation.balance | number:2 }}</td>
+            </tr>
+        </tbody>
+    </table>
 
 </div>
