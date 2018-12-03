@@ -2,7 +2,7 @@
 
     <div class="t-c">
 
-        <img class="logo" src="http://lib.om.ua/om-logo.svg" alt="">
+        <img class="logo" src="https://lib.om.ua/om-logo.svg" alt="">
         <h1 class="md-display-1">
             Добро пожаловать<span ng-show="account.firstname || account.username">, {{ account.firstname || account.username }}</span>!
         </h1>
@@ -33,10 +33,10 @@
     <table class="t-c p-sm" style="width: 100%;">
         <thead>
             <tr>
-                <th>Дата</th>
+                <th hide-xs>Дата</th>
                 <th class="t-l">Операция</th>
-                <th>Сумма</th>
-                <th hide-xs>Баланс</th>
+                <th class="t-r">Сумма</th>
+                <th class="t-r">Баланс</th>
             </tr>
         </thead>
         <tbody ng-init='types = {
@@ -48,11 +48,19 @@
                             "renewal": "Возобновление предоставления услуг",
                             }'>
             <tr ng-repeat="operation in operations track by operation.id">
-                <td hide-xs>{{ operation.created | date:'yyyy-MM-dd HH:mm:ss' }}</td>
-                <td hide-gt-xs>{{ operation.created | date:'yyyy-MM-dd HH:mm' }}</td>
-                <td class="t-l">{{ types[operation.type] }}</td>
-                <td>{{ operation.sum | number:2 }}</td>
-                <td hide-xs>{{ operation.balance | number:2 }}</td>
+                <td class="t-sm" hide-xs>
+                    <span hide-xs>{{ operation.created | date:'yyyy-MM-dd HH:mm:ss' }}</span>
+                    <span hide-gt-xs>{{ operation.created | date:'yyyy-MM-dd HH:mm' }}</span>
+                </td>
+                <td class="t-l">
+                    {{ types[operation.type] }}
+                    <span class="t-xs" hide-gt-xs>
+                        <br>
+                        {{ operation.created | date:'yyyy-MM-dd HH:mm' }}
+                    </span>
+                </td>
+                <td class="t-r">{{ operation.sum | number:2 }}</td>
+                <td class="t-r">{{ operation.balance | number:2 }}</td>
             </tr>
         </tbody>
     </table>
