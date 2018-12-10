@@ -1,4 +1,4 @@
-<form name="form" class="app" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-disabled="state.loading" ng-submit="signin()">
+<form name="form" class="app" md-colors="{ background: 'grey-A100' }" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-disabled="loading" ng-submit="signin()">
 
 <div layout-gt-xs="row">
     <h1 class="md-display-1" flex>Вход</h1>
@@ -28,8 +28,8 @@
 </div>
 
 <div layout="row" layout-align="center">
-    <md-progress-circular md-mode="indeterminate" ng-show="state.loading"></md-progress-circular>
-    <md-button class="md-raised md-primary" md-autofocus ng-disabled="form.$invalid || state.loading" ng-click="signin()">
+    <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+    <md-button class="md-raised md-primary" md-autofocus ng-disabled="form.$invalid || loading" ng-click="signin()">
         Продолжить
     </md-button>
 </div>

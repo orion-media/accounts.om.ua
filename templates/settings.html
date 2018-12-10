@@ -1,4 +1,4 @@
-<form name="form" class="app" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-disabled="state.loading" ng-submit="settings()">
+<form name="form" class="app" md-colors="{ background: 'grey-A100' }" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-disabled="loading" ng-submit="settings()">
 
 <h1 class="md-display-1">Редактирование профиля</h1>
 
@@ -64,11 +64,11 @@
 </div>
 
 <div layout="row" layout-align="center">
-    <md-progress-circular md-mode="indeterminate" ng-show="state.loading"></md-progress-circular>
-    <md-button class="md-raised" ng-disabled="form.$invalid || state.loading" ng-href="/">
+    <md-progress-circular md-mode="indeterminate" ng-show="loading"></md-progress-circular>
+    <md-button class="md-raised" ng-disabled="form.$invalid || loading" ng-href="/">
         Отмена
     </md-button>
-    <md-button class="md-raised md-primary" ng-disabled="form.$invalid || state.loading" ng-click="settings()">
+    <md-button class="md-raised md-primary" ng-disabled="form.$invalid || loading" ng-click="settings()">
         Сохранить
     </md-button>
 </div>
