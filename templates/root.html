@@ -1,10 +1,30 @@
-<div class="app" md-colors="{ background: 'grey-A100' }" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}">
+<style>
+    .bg-logo {
+        position: relative;
+        z-index: 0;
+    }
+    .bg-logo::after {
+        content: "";
+        background: url(https://lib.om.ua/om-logo-only.svg);
+        background-size: 330px;
+        background-repeat: no-repeat;
+        background-position: -85px -70px;
+        opacity: 0.15;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
+</style>
+<div class="app m-t-md" ng-class="{'p-sm': !om.isGt(), 'p-md m-b-md md-whiteframe-1dp bg-logo': om.isGt()}" md-colors="{ background: 'grey-A100' }">
 
     <div class="t-c">
 
-        <img class="logo" src="https://lib.om.ua/om-logo.svg" alt="">
+        <!-- <img class="logo" src="https://lib.om.ua/om-logo.svg" alt=""> -->
         <h1 class="md-display-1">
-            Добро пожаловать<span ng-show="account.firstname || account.username">, {{ account.firstname || account.username }}</span>!
+            Добро пожаловать<span ng-show="account.firstname || account.username">,<br> {{ account.firstname || account.username }}</span>!
         </h1>
 
         <md-button class="md-primary" ng-href="/signup" ng-hide="id">
@@ -24,7 +44,7 @@
 
 </div>
 
-<div flex-xs="grow" class="app" ng-class="{'p-sm': !isGt(), 'p-md': isGt(), 'm-t-md': isGt(), 'm-b-md': isGt(), 'md-whiteframe-1dp': isGt()}" ng-show="account.balance" md-colors="{ background: 'grey-A100' }">
+<div class="app m-t-md" ng-class="{'p-sm': !om.isGt(), 'p-md m-b-md md-whiteframe-1dp': om.isGt()}" md-colors="{ background: 'grey-A100' }" flex-xs="grow" ng-show="account.balance">
 
     <div layout-gt-xs="row" layout-align=" center">
         <h2 class="md-headline" flex>Финансовая статистика</h2>
